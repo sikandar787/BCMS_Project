@@ -56,6 +56,13 @@ Route::group(['middleware'=>'admin_auth'], function()
     Route::get('admin/luggage/manage_luggage/{id}',[LuggageController::class,'manage_luggage']);
     Route::get('admin/luggage/delete/{id}',[LuggageController::class,'delete']);
 
+    // Department Section Routes
+
+    Route::get('admin/department',[DepartmentController::class,'index']);
+    Route::get('admin/departments/manage_departments',[DepartmentController::class,'manage_departments']);
+    Route::post('admin/departments/add_departments',[DepartmentController::class,'add_departments'])->name('add_departments');
+    Route::get('admin/departments/delete/{id}',[DepartmentController::class,'delete']);
+    Route::get('admin/departments/manage_departments/{id}',[DepartmentController::class,'manage_departments']);
 
     //Report Section Routes
     Route::get('admin/medical_reports',[ReportController::class,'index']);
@@ -64,13 +71,7 @@ Route::group(['middleware'=>'admin_auth'], function()
     Route::get('admin/medical_reports/delete/{id}',[ReportController::class,'delete']);
     Route::get('admin/view/{id}',[ReportController::class,'view']);
 
-    // Department Section Routes
 
-    Route::get('admin/department',[DepartmentController::class,'index']);
-    Route::get('admin/departments/manage_departments',[DepartmentController::class,'manage_departments']);
-    Route::post('admin/departments/add_departments',[DepartmentController::class,'add_departments'])->name('add_departments');
-    Route::get('admin/departments/delete_deparments/{id}',[DepartmentController::class,'delete_deparments']);
-    Route::get('admin/departments/manage_departments/edit/{id}',[DepartmentController::class,'update']);
 
 
     // Route::get('admin/medical_reports/view/{id}',[ReportController::class,'view']);

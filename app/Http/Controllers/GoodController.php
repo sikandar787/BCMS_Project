@@ -54,18 +54,8 @@ class GoodController extends Controller
 
         return view('admin.manage_goods', $result);
     }
-    // public function exported_goods()
-    // {
-    //     return view('admin.exported_goods');
-    // }
     public function add_goods(Request $req)
     {
-        // $req->validate([
-        //     ' officer_name'=> 'required',
-        //     'traveller_name'=> 'required',
-        //     'passport_number'=> 'required',
-        //     'description'=> 'required',
-        // ]);
 
         if($req->post('id')>0){
             $model =Good::find($req->post('id'));
@@ -75,7 +65,7 @@ class GoodController extends Controller
             $msg='Goods Information Added';
         }
 
-            // return $req->post();
+
 
         $model-> exporter_name =$req->post('exporter_name');
         $model-> impoter_name =$req->post('impoter_name');
@@ -86,7 +76,6 @@ class GoodController extends Controller
         $model-> country =$req->post('country');
         $model-> product_name =$req->post('product_name');
         $model-> quantity =$req->post('quantity');
-        // $model-> goods_type =$req->post('goods_type');
         $model->save();
 
         $req->session()->flash('message', $msg);
@@ -104,35 +93,7 @@ class GoodController extends Controller
         return redirect('admin/goods');
     }
 
-    // public function delete(Request $request, $id)
 
-    // {
-    //     $model=Good::find($id);
-    //     $model->delete($id);
-    //     $request->session()->flash('message', 'Complaint Deleted Ssuccesfully');
-    //     return redirect('admin/goods');
-    // }
-
-    // public function store(Request $request)
-
-    // {
-    //     // $request->validate([
-    //     //     'goods_type'=>'required'
-    //     // ]);
-
-
-    //         if(is_null($request->goods_type)){
-
-    //             return redirect('admin/goods/manage_goods');
-    //         }
-    //         $goods_type = new Good();
-    //         $goods_type->goods = implode(",", $request->input('goods'));
-    //         echo $goods_type;
-    //         exit();
-    //         $inputValue['goods_type'] = $goods_type;
-    //         $goods_type->save();
-    //         return redirect('admin/goods/manage_goods');
-    // }
 
 
 

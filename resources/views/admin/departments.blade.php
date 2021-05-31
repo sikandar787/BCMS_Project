@@ -12,8 +12,8 @@
         <h1 style="text-align: center; margin-top: 6%;">Departments</h1>
     </div>
 
-    <div style="margin-left: 5%; background-color: #20b376 ; ">
-        {{ session('success') }}
+    <div style="margin-left: 5%; margin-top:20px; background-color: #20b376 ; ">
+        {{ session('message') }}
 </div>
 <div style="margin-left:80px; margin-top:-50px;">
     <a href="departments/manage_departments">
@@ -51,10 +51,10 @@
             <td>
 
                 <div style="margin-right: 35px;">
-                    <a href="{{ url('admin/departments/delete_deparments/') }}/{{ $list->id }}">
+                    <a href="{{ url('admin/departments/delete/') }}/{{ $list->id }}">
                         <button type="button" class="btn btn-danger">Delete</button>
                     </a>
-                    <a href="{{ url('admin/departments/manage_departments/edit') }}/{{ $list->id }}">
+                    <a href="{{ url('admin/departments/manage_departments/') }}/{{ $list->id }}">
                         <button type="button" class="btn btn-primary" s>Edit</button>
                     </a>
                 </div>
