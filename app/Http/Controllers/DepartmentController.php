@@ -21,16 +21,18 @@ class DepartmentController extends Controller
 
     public function manage_departments(Request $req,$id='')
     {
-        if($id>0){
+        if($id>0)
+        {
             $arr= Department::where(['id'=>$id])->get();
-
             $result ['dep_name'] =$arr['0']->dep_name;
             $result ['email'] =$arr['0']->email;
             $result ['password'] =$arr['0']->password;
             $result ['dep_type_id'] =$arr['0']->dep_type_id;
             $result ['status'] =$arr['0']->status;
             $result ['id'] =$arr['0']->id;
-        }else{
+        }
+        else
+        {
             $result ['dep_name'] ='';
             $result ['email'] ='';
             $result ['password'] ='';
@@ -54,10 +56,13 @@ class DepartmentController extends Controller
 
     public function add_departments(Request $req)
     {
-        if($req->post('id')>0){
+        if($req->post('id')>0)
+        {
             $model =Department::find($req->post('id'));
             $msg='Departments Information Updated';
-        }else{
+        }
+        else
+        {
             $model = new Department();
             $msg='Departments Information Added';
         }

@@ -23,7 +23,8 @@ class GoodController extends Controller
     public function manage_goods(Request $request, $id='')
     {
         // Edit Button
-        if($id>0){
+        if($id>0)
+        {
             $arr= Good::where(['id'=>$id])->get();
 
             $result ['exporter_name'] =$arr['0']->exporter_name;
@@ -37,7 +38,9 @@ class GoodController extends Controller
             $result ['quantity'] =$arr['0']->quantity;
             $result ['goods_type'] =$arr['0']->goods_type;
             $result ['id'] =$arr['0']->id;
-        }else{
+        }
+        else
+        {
             $result ['exporter_name'] ='';
             $result ['impoter_name'] ='';
             $result ['exporter_address'] ='';
@@ -57,16 +60,16 @@ class GoodController extends Controller
     public function add_goods(Request $req)
     {
 
-        if($req->post('id')>0){
+        if($req->post('id')>0)
+        {
             $model =Good::find($req->post('id'));
             $msg='Goods Information Updated';
-        }else{
+        }
+        else
+        {
             $model = new Good();
             $msg='Goods Information Added';
         }
-
-
-
         $model-> exporter_name =$req->post('exporter_name');
         $model-> impoter_name =$req->post('impoter_name');
         $model-> exporter_address =$req->post('exporter_address');
