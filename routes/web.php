@@ -8,6 +8,7 @@ use App\Http\Controllers\GoodController;
 use App\Http\Controllers\LuggageController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ManageComplaints;
+use App\Http\Controllers\DepartmentController;
 use Faker\Provider\Medical;
 
 /*
@@ -36,28 +37,43 @@ Route::group(['middleware'=>'admin_auth'], function()
     //Complaints Section Routes Route::get('admin/goods/delete_goods/{id}',[GoodController::class,'delete_goods']);
     Route::get('admin/complaints',[ComplaintController::class,'index']);
     Route::get('admin/complaints/manage_complaints',[ComplaintController::class,'manage_complaints']);
-    Route::post('admin/complaints/add_complaints_process',[ComplaintController::class,'add_complaints_process'])->name('complaints.insert');
+    Route::post('admin/complaints/add_complaints',[ComplaintController::class,'add_complaints'])->name('add_complaints');
     Route::get('admin/complaints/delete/{id}',[ComplaintController::class,'delete']);
+    Route::get('admin/complaints/manage_complaints/{id}',[ComplaintController::class,'manage_complaints']);
 
     //Goods Setion Routes
     Route::get('admin/goods',[GoodController::class,'index']);
     Route::get('admin/goods/manage_goods',[GoodController::class,'manage_goods']);
     Route::get('admin/goods/manage_goods/exported_goods',[GoodController::class,'exported_goods']);
-    Route::post('admin/goods/manage_goods/add_goods',[GoodController::class,'add_goods'])->name('goods.insert');
+    Route::post('admin/goods/manage_goods/add_goods',[GoodController::class,'add_goods'])->name('add_goods');
     Route::get('admin/goods/delete_goods/{id}',[GoodController::class,'delete_goods']);
     Route::get('admin/goods/manage_goods/{id}',[GoodController::class,'manage_goods']);
 
     //Luggage Section Routes
     Route::get('admin/luggage',[LuggageController::class,'index']);
     Route::get('admin/luggage/manage_luggage',[LuggageController::class,'manage_luggage']);
-    Route::post('admin/luggage/mannage_luggage_process',[LuggageController::class,'mannage_luggage_process'])->name('mannage_luggage_process');
+    Route::post('admin/luggage/add_luggage',[LuggageController::class,'add_luggage'])->name('add_luggage');
+    Route::get('admin/luggage/manage_luggage/{id}',[LuggageController::class,'manage_luggage']);
     Route::get('admin/luggage/delete/{id}',[LuggageController::class,'delete']);
 
 
     //Report Section Routes
     Route::get('admin/medical_reports',[ReportController::class,'index']);
     Route::get('admin/medical_reports/manage_medical_reports', [ReportController::class, 'manage_medical_reports']);
-    Route::post('admin/medical_reports/manage_medical_reports',[ReportController::class,'manage_medical_reports'])->name('manage_medical_reports_process');
+    Route::post('admin/medical_reports/store',[ReportController::class,'store'])->name('store');
+    Route::get('admin/medical_reports/delete/{id}',[ReportController::class,'delete']);
+    Route::get('admin/view/{id}',[ReportController::class,'view']);
+
+    // Department Section Routes
+
+    Route::get('admin/department',[DepartmentController::class,'index']);
+    Route::get('admin/departments/manage_departments',[DepartmentController::class,'manage_departments']);
+    Route::post('admin/departments/add_departments',[DepartmentController::class,'add_departments'])->name('add_departments');
+    Route::get('admin/departments/delete_deparments/{id}',[DepartmentController::class,'delete_deparments']);
+    Route::get('admin/departments/manage_departments/edit/{id}',[DepartmentController::class,'update']);
+
+
+    // Route::get('admin/medical_reports/view/{id}',[ReportController::class,'view']);
     // Logut Functionality
      Route::get('admin/logout', function ()
         {

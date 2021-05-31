@@ -16,7 +16,7 @@ class CreateLuggageTable extends Migration
         Schema::create('luggage', function (Blueprint $table) {
             $table->id();
             $table->string('traveller_name');
-            $table->integer('traveller_passport_number');
+            $table->string('traveller_passport_number');
             $table->string('luggage_serial_number');
             $table->integer('number_of_luggage');
             $table->string('luggage_type');

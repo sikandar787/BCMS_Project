@@ -49,20 +49,25 @@
         </a>
     </div>
     {{-- Back Button End --}}
+    {{-- session message --}}
+    <div style="margin-left: 5%; margin-top:50px; background-color: #20b376 ;" class="">
+        {{ session('insert') }}
+    </div>
+    {{-- Session msg End --}}
 
     {{-- Form Div Start --}}
 
-    <form action="{{ Route('manage_medical_reports_process') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ Route('store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row" style="display: block; padding: 30px 50px;  ">
             <div class="col mt-40" style="padding: 20px;">
-              <input type="text" class="form-control" id="t_name" placeholder="Enter Traveller Name" name="traveller_name" required>
+              <input type="text" class="form-control" id="t_name" placeholder="Enter Traveller Names" name="traveller_name" required>
             </div>
             <div class="col mt-40" style="padding: 20px;">
                 <input type="text" class="form-control" id="t_name" placeholder="Enter Traveller Passport Number" name="traveller_passport_number" required>
              </div>
              <div class="col mt-40" style="padding: 20px;">
-                <input type="file" class="form-control" id="_name" placeholder="Upload File" name="file_name" required>
+                <input type="file" class="form-control" id="_name" placeholder="Upload File" name="file" required>
              </div>
 
 

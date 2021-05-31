@@ -15,14 +15,31 @@ class LuggageController extends Controller
     }
 
 
-    public function manage_luggage()
+    public function manage_luggage(Request $request, $id='')
     {
-        return view('admin.manage_luggage');
+        if($id>0){
+            $arr= Luggage::where(['id'=>$id])->get();
+            $result['traveller_name']=$arr['0']->traveller_name;
+            $result['traveller_passport_number']=$arr['0']->traveller_passport_number;
+            $result['luggage_serial_number']=$arr['0']->luggage_serial_number;
+            $result['number_of_luggage']=$arr['0']->number_of_luggage;
+            $result['luggage_type']=$arr['0']->luggage_type;
+            $result['id']=$arr['0']->id;
+
+        }else{
+            $result['traveller_name']='';
+            $result['traveller_passport_number']='';
+            $result['luggage_serial_number']='';
+            $result['number_of_luggage']='';
+            $result['luggage_type']='';
+            $result['id']='';
+        }
+        return view('admin/manage_luggage', $result );
 
     }
 
 
-    public function mannage_luggage_process(Request $req)
+    public function add_luggage(Request $req)
     {
 
         // $req->validate([
@@ -33,7 +50,14 @@ class LuggageController extends Controller
         //     'luggage_type'=> 'required',
         // ]);
 
-            $model = new Luggage();
+            if($req->post('id')>0){
+                $model= Luggage::find($req->post('id'));
+                $msg='Luggage Information Updated Succesfully';
+            }else{
+                $model = new Luggage();
+                $msg='Luggage Information Added Succesfully';
+            }
+
             $model->traveller_name  =$req->post('traveller_name');
             $model->traveller_passport_number  =$req->post('traveller_passport_number');
             $model->luggage_serial_number  =$req->post('luggage_serial_number');
@@ -41,8 +65,8 @@ class LuggageController extends Controller
             $model->luggage_type =$req->post('luggage_type');
             $model->save();
 
-            $req->session()->flash('success', 'Luggage has added Succesfully');
-            return redirect('admin/luggage/manage_luggage');
+            $req->session()->flash('success', $msg);
+            return redirect('admin/luggage');
 
     }
     public function delete(Request $req, $id)

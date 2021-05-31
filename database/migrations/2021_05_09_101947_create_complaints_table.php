@@ -17,7 +17,7 @@ class CreateComplaintsTable extends Migration
             $table->id();
             $table->string('officer_name');
             $table->string('traveller_name');
-            $table->integer('passport_number');
+            $table->string('passport_number');
             $table->string('description');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();

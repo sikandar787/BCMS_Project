@@ -28,7 +28,7 @@
 
 
     <div class="container"  style="margin 0px; " >
-        <form action="{{ Route('goods.insert') }}" method="POST">
+        <form action="{{ Route('add_goods') }}" method="POST">
             @csrf
             {{-- INPUT BOX CREATION --}}
             <div class="row" style="display: flex; padding: 10px; margin-top: 50px">
@@ -68,6 +68,10 @@
                 <div class="col-sm-12 col-md-4 form-group" style="padding: 10px;">
                     <input type="text" value="{{ $quantity }}" name="quantity" class="form-control" placeholder="Quantity" required >
                 </div>
+
+
+                    <input type="hidden" value="{{ $id }}" name="id" >
+
 
 
                 {{-- !INPUT BOX CREATION END !--}}

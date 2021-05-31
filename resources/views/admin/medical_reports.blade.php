@@ -42,12 +42,49 @@
             </a>
         </div>
         {{-- Add Report Btn Div End --}}
-
+        {{-- session msg --}}
+        <div class="message" style=" background-color: #20b376 ;  ">
+            {{ session('success') }}
+    </div>
+        {{-- end msg --}}
         {{-- Form Div --}}
-        <div class="formSubmission">
-            <form action="{{ Route('report.insert') }}" method="POST">
-               @csrf
-            </form>
+        <div class="data_table">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Traveller Name</th>
+                        <th scope="col">Traveller Passport Number</th>
+                        <th scope="col">File</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data as $data)
+                      <tr>
+
+                        <td> {{ $data->id }}</td>
+                        <td> {{ $data->traveller_name }}</td>
+                        <td> {{ $data->traveller_passport_number }}</td>
+                        <td> {{ $data->file }}</td>
+
+                        <td>
+                            <div class="button" style="margin-right: 35px;">
+                                <a href="{{ url('admin/medical_reports/delete/') }}/{{ $data->id }}">
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                </a>
+
+                                <a href="{{ url('admin/files/view/') }}/{{ $data->id }}" >
+                                    <button type="button" class="btn btn-success" s>View</button>
+                                </a>
+                            </div>
+                        </td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+            </div>
         </div>
         {{-- form Div End --}}
     </div>

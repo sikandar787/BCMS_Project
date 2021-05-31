@@ -32,29 +32,33 @@
                     padding: 20px;" >
                         <h3 style="text-align: center; padding-top:15px;">Enter Details</h3>
                         {{-- Session Message --}}
-                        <div class="container" style="   background-color: #4fe6a7 ;" class="">
+                        <div class="container" style="  margin-top:20px; background-color: #4fe6a7 ;" class="">
                             {{ session('success') }}
                                         </div>
                         {{-- Session Message End --}}
-                        <form action="{{ Route('mannage_luggage_process') }}" method="POST">
+                        <form action="{{ Route('add_luggage') }}" method="POST">
                             @csrf
                             <div class="row" style="display: block; padding: 30px 50px;  ">
                                 <div class="col mt-40" style="padding: 20px;">
-                                  <input type="text" class="form-control" id="t_name" placeholder="Enter Traveller Name" name="traveller_name" required>
+                                  <input type="text" value="{{ $traveller_name }}" class="form-control"  placeholder="Enter Traveller Name" name="traveller_name" required>
                                 </div>
                                 <div class="col mt-40" style="padding: 20px;">
-                                    <input type="text" class="form-control" id="t_name" placeholder="Enter Traveller Passport Number" name="traveller_passport_number" required>
+                                    <input type="text" class="form-control"  placeholder="Enter Traveller Passport Number"
+                                    value="{{ $traveller_passport_number }}" name="traveller_passport_number" required>
                                   </div>
                                 <div class="col" style="padding: 20px;">
-                                  <input type="text" class="form-control" placeholder="Enter Luggage Serial Number " name="luggage_serial_number" required>
+                                  <input type="text" class="form-control" placeholder="Enter Luggage Serial Number "
+                                  value="{{ $luggage_serial_number }}"
+                                  name="luggage_serial_number" required>
                                 </div>
                                 <div class="col" style="padding: 20px;">
-                                    <input type="text" class="form-control" placeholder="Enter Number of Luggages" name="number_of_luggage" required>
+                                    <input type="text" class="form-control" value="{{ $number_of_luggage }}" placeholder="Enter Quantity of Luggages" name="number_of_luggage" required>
                                   </div>
                                   <div class="col" style="padding: 20px;">
-                                    <input type="text" class="form-control" placeholder="Enter Luggage Type" name="luggage_type" required>
+                                    <input type="text" class="form-control" value="{{ $luggage_type }}" placeholder="Enter Luggage Type" name="luggage_type" required>
                                   </div>
                               </div>
+                              <input type="hidden" value="{{ $id }} " name="id" >
                               <button type="submit" class="btn btn-primary mt-3" style="cursor: pointer;  width: 100%;  color: white; padding: 11px 10px; border-radius: 2px;  color: white; padding: 14px 20px; margin: 8px 0;">Submit</button>
                         </form>
 
@@ -68,35 +72,3 @@
 
 
 
-                    {{-- <div class="row"  >
-                                <div class="col form-group">
-                                    <input type="text" name="exporter_name" class="form-control" placeholder="Exporter name">
-                                </div>
-                                        <div class="col form-group">
-                                            <input type="text" name="impoter_name" class="form-control" placeholder="Impoter name">
-                                        </div>
-                                                <div class="col form-group">
-                                                    <input type="text" name="exporter_address" class="form-control" placeholder="Exporter Address">
-                                                </div>
-                                                        <div class="col form-group">
-                                                            <input type="text" name="impoter_address" class="form-control" placeholder="Impoter Address">
-                                                        </div>
-                                                        {{-- new --}}
-                                                        {{-- <div class="col form-group" >
-                                                            <input type="text" name="city" class="form-control" placeholder="City" >
-                                                        </div>
-                                                            <div class="col form-group">
-                                                                <input type="text" name="zipcode" class="form-control" placeholder="Zipcode" >
-                                                            </div>
-                                                                    <div class="col form-group">
-                                                                        <input type="text" name="country" class="form-control" placeholder="Country" >
-                                                                    </div>
-                                                                            <div class="col form-group">
-                                                                                <input type="text" name="product_name" class="form-control" placeholder="Product Name" >
-                                                                            </div>
-                                                                                        <div class="col form-group">
-                                                                                            <input type="text" name="quantity" class="form-control" placeholder="Quantity" >
-                                                                                        </div> --}}
-
-
-                            {{-- <button type="submit"  class="btn btn-info"  style="margin-left: 9%">Submit</button> --}}

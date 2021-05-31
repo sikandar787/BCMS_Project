@@ -36,26 +36,28 @@ class GoodController extends Controller
             $result ['product_name'] =$arr['0']->product_name;
             $result ['quantity'] =$arr['0']->quantity;
             $result ['goods_type'] =$arr['0']->goods_type;
+            $result ['id'] =$arr['0']->id;
         }else{
             $result ['exporter_name'] ='';
             $result ['impoter_name'] ='';
             $result ['exporter_address'] ='';
             $result ['impoter_address'] ='';
-            $result['city'] ='';
+            $result ['city'] ='';
             $result ['zipcode'] ='';
             $result ['country'] ='';
             $result ['product_name'] ='';
             $result ['quantity'] ='';
             $result ['goods_type'] ='';
+            $result ['id'] =0;
 
         }
 
         return view('admin.manage_goods', $result);
     }
-    public function exported_goods()
-    {
-        return view('admin.exported_goods');
-    }
+    // public function exported_goods()
+    // {
+    //     return view('admin.exported_goods');
+    // }
     public function add_goods(Request $req)
     {
         // $req->validate([
@@ -65,8 +67,16 @@ class GoodController extends Controller
         //     'description'=> 'required',
         // ]);
 
-            return $req->post();
-        $model = new Good();
+        if($req->post('id')>0){
+            $model =Good::find($req->post('id'));
+            $msg='Goods Information Updated';
+        }else{
+            $model = new Good();
+            $msg='Goods Information Added';
+        }
+
+            // return $req->post();
+
         $model-> exporter_name =$req->post('exporter_name');
         $model-> impoter_name =$req->post('impoter_name');
         $model-> exporter_address =$req->post('exporter_address');
@@ -79,7 +89,7 @@ class GoodController extends Controller
         // $model-> goods_type =$req->post('goods_type');
         $model->save();
 
-        $req->session()->flash('message', 'Imported Good Added Succesfully');
+        $req->session()->flash('message', $msg);
 
         return redirect('admin/goods/manage_goods');
 

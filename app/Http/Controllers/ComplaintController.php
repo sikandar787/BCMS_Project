@@ -20,17 +20,39 @@ class ComplaintController extends Controller
         return view('admin.complaints',  ['data'=>$result]);
     }
 
-    public function manage_complaints()
+    public function manage_complaints(Request $request, $id='')
     {
-        return view('admin.manage_complaints');
+        if($id>0){
+            $arr= Complaint::where(['id'=>$id])->get();
+            $result['officer_name']=$arr['0']->officer_name;
+            $result['traveller_name']=$arr['0']->traveller_name;
+            $result['passport_number']=$arr['0']->passport_number;
+            $result['description']=$arr['0']->description;
+            $result['id']=$arr['0']->id;
+        }
+        else{
+            $result['officer_name']='';
+            $result['traveller_name']='';
+            $result['passport_number']='';
+            $result['description']='';
+            $result['id']=0;
+        }
+        return view('admin.manage_complaints', $result);
     }
 
-    public function add_complaints_process(Request $req)
+    public function add_complaints(Request $req)
     {
 
 
+        if($req->post('id')>0){
+            $model =Complaint::find($req->post('id'));
+            $ms='Complaint Updated Successfully';
+        }else{
+            $model = new Complaint();
+            $ms='Complaint Added Successfully';
+        }
 
-        $model = new Complaint();
+
         $model-> officer_name =$req->post('officer_name');
         $model-> traveller_name =$req->post('traveller_name');
         $model-> passport_number =$req->post('passport_number');
@@ -44,9 +66,9 @@ class ComplaintController extends Controller
         //     'description'=> 'required',
         // ]);
 
-        $req->session()->flash('message', 'Complaint Registered Succesfully');
+        $req->session()->flash('success', $ms);
 
-        return redirect('admin/complaints');
+        return redirect('admin/complaints/manage_complaints');
         // $complaint= new Complaint;
         // $complaint->officer_name = $req->officer_name;
         // $complaint->traveller_name= $req->traveller_name;

@@ -10,7 +10,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
+       <link rel="stylesheet" href=" https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css
+       ">
                         <style>
                         body{background:#f9f9f9;}
                 #wrapper{padding:90px 15px;}
@@ -46,21 +47,28 @@
             <a class="nav-link" href="{{ url('admin/dashboard') }}" title="Dashboard"><i class="fas fa-cube"></i> Dashboard <i class="fas fa-cube shortmenu animate"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('admin/users_info') }}" title="Users"><i class="fas fa-cart-plus"></i> Users <i class="fas fa-cart-plus shortmenu animate"></i></a>
+            <a class="nav-link" href="{{ url('admin/users_info') }}" title="Users"><i class="fas fa-users"></i> Users <i class="fas fa-cart-plus shortmenu animate"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('admin/complaints') }}" title="Comment"><i class="fas fa-comment"></i> Complaints <i class="fas fa-comment shortmenu animate"></i></a>
+            <a class="nav-link" href="{{ url('admin/department') }}" title="Users"><i class="fas fa-building"></i> Departments <i class="fas fa-building shortmenu animate"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('admin/luggage') }}" title="Comment"><i class="fas fa-comment"></i> Luggages <i class="fas fa-comment shortmenu animate"></i></a>
+            <a class="nav-link" href="{{ url('admin/complaints') }}" title="Comment"><i class="fas fa-material"></i> Complaints <i class="fas fa-fa-material shortmenu animate"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('admin/goods') }}" title="Comment"><i class="fas fa-comment"></i> Transport Goods <i class="fas fa-comment shortmenu animate"></i></a>
+            <a class="nav-link" href="{{ url('admin/luggage') }}" title="Comment"><i  class="fas fa-suitcase"></i> Luggages <i class="fas fa-suitcase shortmenu animate"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('admin/medical_reports') }}" title="Comment"><i class="fas fa-comment"></i> Medical Reports <i class="fas fa-comment shortmenu animate"></i></a>
+            <a class="nav-link" href="{{ url('admin/goods') }}" title="Comment"><i class="fas fa-truck"></i> Transport Goods <i class="fas fa-truck shortmenu animate"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('admin/medical_reports') }}" title="Comment"><i class="fas fa-plus-square"></i> Medical Reports <i class="fas fa-plus-square shortmenu animate"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('admin/payments') }}" title="Users"><i class="fas fa-cart-plus"></i> Payments <i class="fas fa-cart-plus shortmenu animate"></i></a>
           </li>
         </ul>
+
         <ul class="navbar-nav ml-md-auto d-md-flex">
           <li class="nav-item">
             <a class="nav-link" href="{{ url('admin/admin_profile') }}"><i class="fas fa-user"></i> Profile</a>

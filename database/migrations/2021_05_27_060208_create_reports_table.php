@@ -14,10 +14,11 @@ class CreateReportsTable extends Migration
     public function up()
     {
         Schema::create('reports', function (Blueprint $table) {
+
             $table->id();
-            $table->sttring('traveller_name');
+            $table->string('traveller_name');
             $table->string('traveller_passport_number');
-            $table->string('file_name');
+            $table->string('file')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
