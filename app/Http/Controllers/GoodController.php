@@ -26,7 +26,6 @@ class GoodController extends Controller
         if($id>0)
         {
             $arr= Good::where(['id'=>$id])->get();
-
             $result ['exporter_name'] =$arr['0']->exporter_name;
             $result ['impoter_name'] =$arr['0']->impoter_name;
             $result ['exporter_address'] =$arr['0']->exporter_address;
