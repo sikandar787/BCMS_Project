@@ -39,7 +39,7 @@
         {{--Add LuggageButton Div --}}
         <div class="text-left">
             <a href="luggage/manage_luggage">
-                <button type="button" class="btn btn-success" style="align-content: center; ">Add Luggage</button>
+                <button type="button" class="btn btn-success" style="align-content: center; ">Add Luggages</button>
             </a>
         </div>
         {{--Add Luggage Button Div End --}}
