@@ -18,78 +18,58 @@ class DepartmentController extends Controller
         return view('admin/departments', ['data'=>$reslut]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function manage_departments(Request $req)
+
+    public function manage_departments(Request $req,$id='')
     {
-        return view('admin.manage_departments');
+        if($id>0){
+            $arr= Department::where(['id'=>$id])->get();
 
+            $result ['dep_name'] =$arr['0']->dep_name;
+            $result ['email'] =$arr['0']->email;
+            $result ['password'] =$arr['0']->password;
+            $result ['dep_type_id'] =$arr['0']->dep_type_id;
+            $result ['status'] =$arr['0']->status;
+            $result ['id'] =$arr['0']->id;
+        }else{
+            $result ['dep_name'] ='';
+            $result ['email'] ='';
+            $result ['password'] ='';
+            $result ['dep_type_id'] ='';
+            $result ['status'] ='';
+            $result ['id'] =0;
 
-        // return view('admin/departments/manage_departments');
+        }
+
+        return view('admin.manage_departments', $result);
     }
 
-        public function delete_deparments(Request $request, $id)
+        public function delete(Request $request, $id)
     {
         $model = Department::find($id);
         $model->delete();
         $request->session()->flash('message','Department Information Deleted');
-        return redirect('admin/departments');
+        return redirect('admin/department');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Department  $department
-     * @return \Illuminate\Http\Response
-     */
+
     public function add_departments(Request $req)
     {
-        $model= new Department();
+        if($req->post('id')>0){
+            $model =Department::find($req->post('id'));
+            $msg='Departments Information Updated';
+        }else{
+            $model = new Department();
+            $msg='Departments Information Added';
+        }
         $model->dep_name= $req->post('dep_name');
         $model->email= $req->post('email');
         $model->password= $req->post('password');
         $model->dep_type_id= $req->post('dep_type_id');
         $model->status= $req->post('status');
         $model->save();
-        $req->session()->flash('success', 'Department Added Successfully');
+        $req->session()->flash('success', $msg);
         return redirect('admin/departments/manage_departments');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Department  $department
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Department $department)
-    {
-      return view('admin/departments/manage_departments', compact('admin'));
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Department  $department
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Department $department)
-    {
-        // $department->update($request->all());
-        return view('admin.departments.editdepartment');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Department  $department
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Department $department)
-    {
-        //
-    }
 }
