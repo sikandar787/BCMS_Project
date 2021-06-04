@@ -43,29 +43,29 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav animate side-nav">
-          <li class="nav-item">
+          <li class="nav-item" class="@yeild('dashboard_select')">
             <a class="nav-link" href="{{ url('admin/dashboard') }}" title="Dashboard"><i class="fas fa-cube"></i> Dashboard <i class="fas fa-cube shortmenu animate"></i></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('admin/users_info') }}" title="Users"><i class="fas fa-users"></i> Users <i class="fas fa-cart-plus shortmenu animate"></i></a>
+          <li class="nav-item" class="@yeild('users_info_select')">
+            <a class="nav-link"  href="{{ url('admin/users_info') }}" title="Users"><i class="fas fa-users"></i> Users <i class="fas fa-cart-plus shortmenu animate"></i></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('admin/department') }}" title="Users"><i class="fas fa-building"></i> Departments <i class="fas fa-building shortmenu animate"></i></a>
+          <li class="nav-item" class="@yeild('department_select')">
+            <a class="nav-link" href="{{ url('admin/department') }}" title="Departments"><i class="fas fa-building"></i> Departments <i class="fas fa-building shortmenu animate"></i></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('admin/complaints') }}" title="Comment"><i class="fas fa-material"></i> Complaints <i class="fas fa-fa-material shortmenu animate"></i></a>
+          <li class="nav-item" class="@yeild('complaints_select')">
+            <a class="nav-link" href="{{ url('admin/complaints') }}" title="Complaints"><i class="fas fa-material"></i> Complaints <i class="fas fa-fa-material shortmenu animate"></i></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('admin/luggage') }}" title="Comment"><i  class="fas fa-suitcase"></i> Luggages <i class="fas fa-suitcase shortmenu animate"></i></a>
+          <li class="nav-item" class="@yeild('users_info_select')">
+            <a class="nav-link" href="{{ url('admin/luggage') }}" title="Luggages"><i  class="fas fa-suitcase"></i> Luggages <i class="fas fa-suitcase shortmenu animate"></i></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('admin/goods') }}" title="Comment"><i class="fas fa-truck"></i> Transport Goods <i class="fas fa-truck shortmenu animate"></i></a>
+          <li class="nav-item" class="@yeild('goods_select')">
+            <a class="nav-link" href="{{ url('admin/goods') }}" title="Transport Goods"><i class="fas fa-truck"></i> Transport Goods <i class="fas fa-truck shortmenu animate"></i></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('admin/medical_reports') }}" title="Comment"><i class="fas fa-plus-square"></i> Medical Reports <i class="fas fa-plus-square shortmenu animate"></i></a>
+          <li class="nav-item" class="@yeild('medical_reports_select')">
+            <a class="nav-link" href="{{ url('admin/medical_reports') }}" title="Medical Reports"><i class="fas fa-plus-square"></i> Medical Reports <i class="fas fa-plus-square shortmenu animate"></i></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('admin/payments') }}" title="Users"><i class="fas fa-cart-plus"></i> Payments <i class="fas fa-cart-plus shortmenu animate"></i></a>
+          <li class="nav-item" class="@yeild('payments_select')">
+            <a class="nav-link" href="{{ url('admin/payments') }}" title="Payments"><i class="fas fa-cart-plus"></i> Payments <i class="fas fa-cart-plus shortmenu animate"></i></a>
           </li>
         </ul>
 

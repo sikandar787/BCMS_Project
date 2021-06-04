@@ -57,6 +57,7 @@ class ComplaintController extends Controller
         $model-> traveller_name =$req->post('traveller_name');
         $model-> passport_number =$req->post('passport_number');
         $model-> description =$req->post('description');
+        $model-> status =1;
         $model->save();
 
         // $req->validate([
@@ -87,6 +88,15 @@ class ComplaintController extends Controller
         return redirect('admin/complaints');
     }
 
+    public function status(Request $request, $id, $status)
 
+    {
+        $model=Complaint::where($id);
+        $model = (object)null;
+        $model -> status=$status;
+        $model->save();
+        $request->session()->flash('message', 'Complaint Status Updated');
+        return redirect('admin/complaints');
+    }
 
 }

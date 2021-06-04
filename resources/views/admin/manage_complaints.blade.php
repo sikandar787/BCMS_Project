@@ -1,5 +1,5 @@
 @extends('admin.layout')
-
+@section('complaints_select', 'active')
 
 <!DOCTYPE html>
 <html lang="en">

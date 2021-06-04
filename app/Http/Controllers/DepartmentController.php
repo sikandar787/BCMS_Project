@@ -73,7 +73,7 @@ class DepartmentController extends Controller
         $model->status= $req->post('status');
         $model->save();
         $req->session()->flash('success', $msg);
-        return redirect('admin/departments/manage_departments');
+        return redirect('admin/department');
     }
 
 

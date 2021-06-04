@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Complaint extends Model
 {
     use HasFactory;
-    public $timestamp= false;
+
+    protected $primarykey ="";
 }

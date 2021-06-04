@@ -40,7 +40,7 @@
                      <div class="col mt-40" style="padding: 20px;">
                         <input type="text" class="form-control"  placeholder="Enter Password" value="{{ $password }}" name="password" required>
                      </div>
-
+                     <input type="hidden" name="id"  value="{{ $id }}" id="">
                      <button type="submit" class="btn btn-primary mt-3" style="cursor: pointer;  width: 100%;  color: white; padding: 11px 10px; border-radius: 2px;  color: white; padding: 14px 20px; margin: 8px 0;">Submit</button>
             </form>
         </div>

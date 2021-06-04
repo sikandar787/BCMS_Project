@@ -40,6 +40,7 @@ Route::group(['middleware'=>'admin_auth'], function()
     Route::post('admin/complaints/add_complaints',[ComplaintController::class,'add_complaints'])->name('add_complaints');
     Route::get('admin/complaints/delete/{id}',[ComplaintController::class,'delete']);
     Route::get('admin/complaints/manage_complaints/{id}',[ComplaintController::class,'manage_complaints']);
+    Route::get('admin/complaints/status/{status}/{id}',[ComplaintController::class,'status']);
 
     //Goods Setion Routes
     Route::get('admin/goods',[GoodController::class,'index']);

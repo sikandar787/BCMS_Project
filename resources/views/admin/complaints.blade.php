@@ -1,5 +1,5 @@
 @extends('admin.layout')
-
+@section('complaints_select', 'active')
 
 
 <!DOCTYPE html>
@@ -32,6 +32,8 @@
             <th scope="col">Traveller Name</th>
             <th scope="col">Passport Number</th>
             <th scope="col">Complaint Description</th>
+            <th scope="col">Status</th>
+            <input type="hidden" name="id">
             <th scope="col"> Action</th>
 
           </tr>
@@ -48,12 +50,25 @@
             <td>{{ $list->passport_number }}</td>
             <td>{{ $list->description}}</td>
             <td>
+                @if ($list->status==1)
+                <a href="{{ url('admin/complaints/status/0') }}/{{ $list->id }}">
+                    <button type="button" class="btn btn-primary">Active</button>
+                </a>
+                @elseif ($list->status==0)
+
+                <a href="{{ url('admin/complaints/status/1') }}/{{ $list->id }}">
+                    <button type="button" class="btn btn-warning">Deactive</button>
+                </a>
+                @endif
+            </td>
+            <td>
+                <a href="{{ url('admin/complaints/manage_complaints/') }}/{{ $list->id }}">
+                    <button type="button" class="btn btn-primary">Edit</button>
+                </a>
                 <a href="{{ url('admin/complaints/delete/') }}/{{ $list->id }}">
                     <button type="button" class="btn btn-danger">Delete</button>
                 </a>
-                <a href="{{ url('admin/complaints/manage_complaints/') }}/{{ $list->id }}">
-                  <button type="button" class="btn btn-primary">Edit</button>
-              </a>
+
             </td>
 
 
