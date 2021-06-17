@@ -37,7 +37,7 @@
             <th scope="col">Complaint Description</th>
             <th scope="col">Status</th>
             <input type="hidden" name="id">
-            <th scope="col"> Action</th>
+            <th scope="col"> Actions</th>
 
           </tr>
         </thead>
