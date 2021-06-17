@@ -75,7 +75,7 @@
                                     <button type="button" class="btn btn-danger">Delete</button>
                                 </a>
 
-                                <a href="{{ url('admin/files/view/') }}/{{ $data->id }}" >
+                                <a href="{{ url('admin/view_report') }}/{{ $data->id }}" >
                                     <button type="button" class="btn btn-success" s>View</button>
                                 </a>
                             </div>

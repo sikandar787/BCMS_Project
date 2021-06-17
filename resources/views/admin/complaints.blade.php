@@ -23,6 +23,9 @@
             <div style="margin-left: 5%; background-color: #20b376 ;">
                     {{ session('success') }}
             </div>
+            <div style="margin-left: 5%; background-color: #20b376 ;">
+                {{ session('message') }}
+        </div>
     <table class="table" style="margin: 60px; ">
         <thead class="thead-dark">
           <tr>
@@ -51,12 +54,12 @@
             <td>{{ $list->description}}</td>
             <td>
                 @if ($list->status==1)
-                <a href="{{ url('admin/complaints/status/0') }}/{{ $list->id }}">
+                <a href="{{ url('admin/complaints/status') }}/{{ $list->id }}">
                     <button type="button" class="btn btn-primary">Active</button>
                 </a>
                 @elseif ($list->status==0)
 
-                <a href="{{ url('admin/complaints/status/1') }}/{{ $list->id }}">
+                <a href="{{ url('admin/complaints/status') }}/{{ $list->id }}">
                     <button type="button" class="btn btn-warning">Deactive</button>
                 </a>
                 @endif

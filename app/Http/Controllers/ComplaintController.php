@@ -88,13 +88,20 @@ class ComplaintController extends Controller
         return redirect('admin/complaints');
     }
 
-    public function status(Request $request, $id, $status)
+    public function status(Request $request, $id)
 
     {
         $model=Complaint::find($id);
-        $model = (object)null;
-        $model -> status=$status;
-        // $model->save();
+        // return $model;
+        if($model -> status == 1)
+        {
+        $model -> status=0;
+        }
+        else
+        {
+            $model -> status=1;
+        }
+        $model->save();
         $request->session()->flash('message', 'Complaint Status Updated');
         return redirect('admin/complaints');
     }

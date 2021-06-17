@@ -23,10 +23,10 @@ class CreateGoodsTable extends Migration
             $table->integer('zipcode');
             $table->string('country');
             $table->string('product_name');
-            $table->integer('quantity');
+            $table->string('quantity');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            $table->enum('goods_type',['imported','exported']);
+
 
         });
     }

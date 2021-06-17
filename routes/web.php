@@ -9,6 +9,7 @@ use App\Http\Controllers\LuggageController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ManageComplaints;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\PaymentController;
 use Faker\Provider\Medical;
 
 /*
@@ -40,7 +41,7 @@ Route::group(['middleware'=>'admin_auth'], function()
     Route::post('admin/complaints/add_complaints',[ComplaintController::class,'add_complaints'])->name('add_complaints');
     Route::get('admin/complaints/delete/{id}',[ComplaintController::class,'delete']);
     Route::get('admin/complaints/manage_complaints/{id}',[ComplaintController::class,'manage_complaints']);
-    Route::get('admin/complaints/status/{status}/{id}',[ComplaintController::class,'status']);
+    Route::get('admin/complaints/status/{id}',[ComplaintController::class,'status']);
 
     //Goods Setion Routes
     Route::get('admin/goods',[GoodController::class,'index']);
@@ -70,13 +71,20 @@ Route::group(['middleware'=>'admin_auth'], function()
     Route::get('admin/medical_reports/manage_medical_reports', [ReportController::class, 'manage_medical_reports']);
     Route::post('admin/medical_reports/store',[ReportController::class,'store'])->name('store');
     Route::get('admin/medical_reports/delete/{id}',[ReportController::class,'delete']);
-    Route::get('admin/view/{id}',[ReportController::class,'view']);
+    Route::get('admin/view_report/{id}',[ReportController::class,'view_report']);
 
 
 
 
     // Route::get('admin/medical_reports/view/{id}',[ReportController::class,'view']);
+
+    //Payment Section Routes
+    Route::get('admin/payments',[PaymentController::class,'index']);
+
+
     // Logut Functionality
+
+    //
      Route::get('admin/logout', function ()
         {
             session()->forget('ADMIN_LOGIN');

@@ -18,7 +18,7 @@
 <div style="margin-left: 5%; margin-top:20px; background-color: #20b376 ; ">
     {{ session('success') }}
 </div>
-<div style="margin-left:80px; margin-top:-50px;">
+<div style="margin-left:80px; margin-top:-3rem;">
     <a href="departments/manage_departments">
         <button type="submit" class="btn btn-success">Add Departments</button>
     </a>

@@ -78,10 +78,11 @@ class ReportController extends Controller
         return redirect('admin/medical_reports');
     }
 
-    public function view($id)
+    public function view_report($id)
     {
         $data=Report::find($id);
-        return view('admin.files.view', compact('data'));
+        // return $data;
+       return view('admin.view_report', compact('data'));
     }
 
     public function show(Report $report)
