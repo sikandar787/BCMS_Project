@@ -1,0 +1,14 @@
+body{
+    background-color: blueviolet;
+}
+.container{
+    background-color: rgb(100, 237, 214);
+    height: 40rem;
+    padding-top:3rem;
+}
+.inside{
+    background-color: rgb(228, 159, 32);
+    height: 30rem;
+    font-size: 4rem;
+    padding: 1.5rem;  
+}
