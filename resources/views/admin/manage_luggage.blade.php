@@ -13,17 +13,17 @@
 </head>
 <body>
 
-                                        <div class="container"  style="margin-top: 60px;">
-                                                    <h1  style="text-align: center; padding-bottom: 28px;" >
-                                                        Add  Luggage Information
-                                                        </h1>
-                                        </div>
+            <div class="container"  style="margin-top: 60px;">
+                 <h1  style="text-align: center; padding-bottom: 28px;" >
+                     Add  Luggage Information
+                  </h1>
+             </div>
 
-                                                <div class="back_btn" style=" margin-top: -50px; margin-left: 80px; cursor: pointer;">
-                                                    <a href="{{ url('admin/luggage') }}">
-                                                        <button type="button" class="btn btn-success" >Back</button>
-                                                    </a>
-                                                </div>
+             <div class="back_btn" style=" margin-top: -50px; margin-left: 80px; cursor: pointer;">
+               <a href="{{ url('admin/luggage') }}">
+                    <button type="button" class="btn btn-success" >Back</button>
+               </a>
+               </div>
 
                     </div>
 

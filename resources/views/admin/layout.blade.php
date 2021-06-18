@@ -49,6 +49,9 @@
           <li class="nav-item" class="@yeild('users_info_select')">
             <a class="nav-link"  href="{{ url('admin/users_info') }}" title="Users"><i class="fas fa-users"></i> Users <i class="fas fa-cart-plus shortmenu animate"></i></a>
           </li>
+          <li class="nav-item" class="@yeild('shifts_select')">
+            <a class="nav-link" href="{{ url('admin/shifts') }}" title="Shifts "><i class="fas fa-truck"></i> Shifts <i class="fas fa-truck shortmenu animate"></i></a>
+          </li>
           <li class="nav-item" class="@yeild('department_select')">
             <a class="nav-link" href="{{ url('admin/department') }}" title="Departments"><i class="fas fa-building"></i> Departments <i class="fas fa-building shortmenu animate"></i></a>
           </li>

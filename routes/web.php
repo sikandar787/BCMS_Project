@@ -80,6 +80,12 @@ Route::group(['middleware'=>'admin_auth'], function()
 
     //Payment Section Routes
     Route::get('admin/payments',[PaymentController::class,'index']);
+    Route::get('admin/payments/manage_payments',[PaymentController::class,'manage_payments']);
+    Route::post('admin/payments/add_payments',[PaymentController::class,'add_payments'])->name('add_payments');
+    Route::get('admin/payments/delete/{id}',[PaymentController::class,'delete']);
+    Route::get('admin/payments/manage_payments/{id}',[PaymentController::class,'manage_payments']);
+    Route::get('admin/payments/status/{id}',[PaymentController::class,'status']);
+
 
 
     // Logut Functionality

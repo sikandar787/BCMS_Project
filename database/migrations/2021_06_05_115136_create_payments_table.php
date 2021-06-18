@@ -18,8 +18,8 @@ class CreatePaymentsTable extends Migration
             $table->string('officer_name');
             $table->string('traveller_name');
             $table->string('passport_number');
-            $table->string('amount');
-            $table->text('description');
+            $table->integer('amount');
+            $table->text('description')->nullable();
             $table->integer('status')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();

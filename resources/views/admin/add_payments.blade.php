@@ -6,14 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Manage Payments</title>
+    <title>Add Payments</title>
 </head>
 <body>
-    <h1 style="text-align: center">Add Payments </h1>
-    <a href="{{ url('admin/payments') }}" style="margin-left: 5rem;">
-        <button type="button" class="btn btn-success" >Back</button>
-   </a>
-
     <div class="container" >
         <form action="{{ Route('add_payments') }}" method="POST">
             @csrf
@@ -47,5 +42,4 @@
             </div>
 </body>
 </html>
-
 @endsection
