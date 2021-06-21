@@ -10,6 +10,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ManageComplaints;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ShiftController;
 use Faker\Provider\Medical;
 
 /*
@@ -42,6 +43,15 @@ Route::group(['middleware'=>'admin_auth'], function()
     Route::get('admin/complaints/delete/{id}',[ComplaintController::class,'delete']);
     Route::get('admin/complaints/manage_complaints/{id}',[ComplaintController::class,'manage_complaints']);
     Route::get('admin/complaints/status/{id}',[ComplaintController::class,'status']);
+
+    // Shifts Section Routes
+    Route::get('admin/shifts',[ShiftController::class,'index']);
+    Route::get('admin/shifts/manage_shifts',[ShiftController::class,'manage_shifts']);
+    Route::post('admin/shifts/add_shifts',[ShiftController::class,'add_shifts'])->name('add_shifts');
+    Route::get('admin/shifts/delete/{id}',[ShiftController::class,'delete']);
+    Route::get('admin/shifts/manage_shifts/{id}',[ShiftController::class,'manage_shifts']);
+    Route::get('admin/shifts/status/{id}',[ShiftController::class,'status']);
+
 
     //Goods Setion Routes
     Route::get('admin/goods',[GoodController::class,'index']);
